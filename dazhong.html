@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加载中</title>
+</head>
+<body>
+
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    window.onload = function () {
+        var url = 'https://page.dazhongzhuanfa.cn/baifenhao/goal_no_more_free_api.php'+location.search;
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (res) {
+                var obj = JSON.parse(res);
+                location.href = obj.url;
+            },
+            error: function (res) {
+                console.log(res)
+                //alert(url);
+                // location.href = 'http://qq.com';
+            }
+        });
+    }
+</script>
+</body>
+
+</html>
